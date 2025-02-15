@@ -1,0 +1,52 @@
+@startuml
+title Financial Ratios - Categories & Formulas
+skinparam BackgroundColor #ffffff
+skinparam ClassBackgroundColor #f2f7ff
+skinparam ClassBorderColor #004080
+skinparam ClassFontColor #00274d
+skinparam ClassFontSize 12
+skinparam ArrowColor #ff6600
+skinparam Shadowing true
+skinparam RoundCorner 15
+skinparam Padding 10
+skinparam ClassBorderThickness 2
+skinparam ClassAttributeIconSize 0
+
+class "Financial Ratios" as FR {
+}
+
+class "Liquidity Ratios" as LR <<#99ccff>> {
+  **Current Ratio** = Current Assets / Current Liabilities
+  **Quick Ratio** = (Current Assets - Inventory - Prepaid Expenses) / Current Liabilities
+  **Cash Ratio** = Cash & Equivalents / Current Liabilities
+}
+
+class "Solvency Ratios" as SR <<#ff9999>> {
+  **Debt to Equity Ratio** = Total Debt / Shareholders' Equity
+  **Debt to Asset Ratio** = Total Debt / Total Assets
+  **Interest Coverage Ratio** = EBIT / Interest Expense
+  **Equity Ratio** = Shareholders' Equity / Total Assets
+}
+
+class "Activity Ratios" as AR <<#99ff99>> {
+  **Inventory Turnover** = COGS / Average Inventory
+  **Accounts Receivable Turnover** = Net Credit Sales / Avg. Accounts Receivable
+  **Accounts Payable Turnover** = Net Credit Purchases / Avg. Accounts Payable
+  **Asset Turnover** = Net Sales / Avg. Total Assets
+  **Working Capital Turnover** = Net Sales / Working Capital
+}
+
+class "Profitability Ratios" as PR <<#ffcc66>> {
+  **Net Profit Margin** = (Net Profit / Net Sales) * 100
+  **Gross Profit Margin** = (Gross Profit / Net Sales) * 100
+  **Return on Assets (ROA)** = Net Income / Total Assets
+  **Return on Equity (ROE)** = Net Income / Shareholders' Equity
+  **Earnings Per Share (EPS)** = (Net Income - Preferred Dividends) / Weighted Avg. Shares
+}
+
+FR --|> LR
+FR --|> SR
+FR --|> AR
+FR --|> PR
+
+@enduml
