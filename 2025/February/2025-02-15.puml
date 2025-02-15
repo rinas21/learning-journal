@@ -18,35 +18,45 @@ class "Financial Ratios" as FR {
 class "Liquidity Ratios" as LR <<#99ccff>> {
   **Current Ratio** = Current Assets / Current Liabilities
   **Quick Ratio** = (Current Assets - Inventory - Prepaid Expenses) / Current Liabilities
-  **Cash Ratio** = Cash & Equivalents / Current Liabilities
 }
 
 class "Solvency Ratios" as SR <<#ff9999>> {
   **Debt to Equity Ratio** = Total Debt / Shareholders' Equity
   **Debt to Asset Ratio** = Total Debt / Total Assets
-  **Interest Coverage Ratio** = EBIT / Interest Expense
-  **Equity Ratio** = Shareholders' Equity / Total Assets
 }
 
 class "Activity Ratios" as AR <<#99ff99>> {
-  **Inventory Turnover** = COGS / Average Inventory
-  **Accounts Receivable Turnover** = Net Credit Sales / Avg. Accounts Receivable
-  **Accounts Payable Turnover** = Net Credit Purchases / Avg. Accounts Payable
-  **Asset Turnover** = Net Sales / Avg. Total Assets
-  **Working Capital Turnover** = Net Sales / Working Capital
+  **Inventory / Stock Turnover Ratio** = Cost of Goods Sold (COGS) / Average Inventory
+  **Debtor's Turnover Ratio** = Net Credit Sales / Average Trade Receivables
 }
 
 class "Profitability Ratios" as PR <<#ffcc66>> {
-  **Net Profit Margin** = (Net Profit / Net Sales) * 100
-  **Gross Profit Margin** = (Gross Profit / Net Sales) * 100
-  **Return on Assets (ROA)** = Net Income / Total Assets
-  **Return on Equity (ROE)** = Net Income / Shareholders' Equity
-  **Earnings Per Share (EPS)** = (Net Income - Preferred Dividends) / Weighted Avg. Shares
+  **Gross Profit Ratio (GP Ratio)** = (Gross Profit / Net Sales) * 100
+  **Net Profit Ratio (NP Ratio)** = (Net Profit / Net Sales) * 100
+}
+
+class "Gross Profit Ratio" as GPR <<#ffcc66>> {
+  **Formula** = Gross Profit / Net Sales * 100
+  **Gross Profit** = Net Sales - COGS
+  **COGS Formula** = Opening Stock + Purchases + Direct Expenses - Closing Stock
+  **Net Sales** = Cash Sales + Credit Sales - Sales Returns
+  **Example** = "Sales: 700,000, Sales Returns: 100,000, COGS: 300,000"
+  **GP Ratio Calculation** = (300,000 / 600,000) * 100 = 50%
+}
+
+class "Net Profit Ratio" as NPR <<#ffcc66>> {
+  **Formula** = Net Profit / Net Sales * 100
+  **Net Profit** = Operating Income - (Direct Costs + Indirect Costs)
+  **Net Sales** = Cash Sales + Credit Sales - Sales Returns
+  **Example** = "Sales: 700,000, Sales Returns: 100,000, Direct Costs: 200,000, Indirect Costs: 100,000"
+  **NP Ratio Calculation** = (300,000 / 600,000) * 100 = 50%
 }
 
 FR --|> LR
 FR --|> SR
 FR --|> AR
 FR --|> PR
+PR -- GPR : "includes"
+PR -- NPR : "includes"
 
 @enduml
